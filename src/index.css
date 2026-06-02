@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@utility glass-panel {
+  background: rgba(10, 25, 41, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+@utility glass-panel-glossy {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+@utility glow-teal {
+  box-shadow: 0 0 20px rgba(57, 204, 204, 0.25);
+}
+
+@utility glow-gold {
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
+}
+
+@utility text-glow-gold {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+@utility text-glow-teal {
+  text-shadow: 0 0 10px rgba(57, 204, 204, 0.5);
+}
+
+/* Custom animations and scrollbar tweaks */
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: rgba(0, 31, 63, 0.5);
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.3);
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 215, 0, 0.6);
+  }
+}

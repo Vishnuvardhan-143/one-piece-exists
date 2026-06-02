@@ -1,0 +1,6 @@
+{
+  "name": "Grand Line Navigator",
+  "description": "An immersive interactive One Piece encyclopedia and interactive Grand Line adventure map tracking Luffy's journey.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
