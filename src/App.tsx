@@ -309,7 +309,7 @@ export default function App() {
             </div>
 
             <div className="flex-1 flex flex-col text-[#F5F5DC] min-w-0 md:overflow-y-auto md:pr-2">
-              <div className="border-b border-white/10 pb-3 mb-3">
+              <div className="border-b border-white/10 pb-3 mb-3 pr-12">
                 <span className="font-sans text-[10px] uppercase tracking-wider text-[#39CCCC] font-black bg-[#39CCCC]/10 px-2 py-0.5 rounded">
                   CLASSIFIED INTELLIGENCE OVERVIEW
                 </span>

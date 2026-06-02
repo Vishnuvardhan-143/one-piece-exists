@@ -48,6 +48,11 @@ export default function EncyclopediaView({
     // Filter by faction
     if (activeFaction !== 'ALL') {
       result = result.filter(char => char.faction === activeFaction);
+    } else {
+      // Deduplicate by name for the "All Files" view
+      result = result.filter((char, index, self) =>
+        self.findIndex(c => c.name === char.name) === index
+      );
     }
 
     // Filter by search term
@@ -109,7 +114,9 @@ export default function EncyclopediaView({
         {/* Faction Pills selector */}
         <div className="flex flex-wrap items-center justify-center gap-2 overflow-x-auto w-full select-none">
           {factionsList.map((f) => {
-            const count = characters.filter(char => f.id === 'ALL' || char.faction === f.id).length;
+            const count = f.id === 'ALL'
+              ? characters.filter((char, index, self) => self.findIndex(c => c.name === char.name) === index).length
+              : characters.filter(char => char.faction === f.id).length;
             const isSelected = activeFaction === f.id;
             return (
               <button
@@ -235,7 +242,7 @@ export default function EncyclopediaView({
             <div className="flex-1 flex flex-col text-[#F5F5DC] min-w-0 md:overflow-y-auto md:pr-2">
               
               {/* Header */}
-              <div className="border-b border-white/10 pb-4 mb-4">
+              <div className="border-b border-white/10 pb-4 mb-4 pr-12">
                 <span className="font-sans text-[10px] uppercase tracking-wider text-[#39CCCC] font-black bg-[#39CCCC]/10 px-2 py-0.5 rounded">
                   MARINE RECONNAISSANCE DOSSIER
                 </span>
