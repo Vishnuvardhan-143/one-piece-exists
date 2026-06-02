@@ -276,7 +276,7 @@ export default function App() {
           onClick={() => setSpotlightCharacter(null)}
         >
           <div 
-            className="relative my-auto w-full max-w-3xl glass-panel-glossy glow-gold rounded-xl p-4 md:p-6 flex flex-col md:flex-row gap-5 overflow-hidden font-sans border-2 border-[#FFD700]/30 cursor-default"
+            className="relative my-auto w-full max-w-3xl glass-panel-glossy glow-gold rounded-xl p-4 md:p-6 flex flex-col md:flex-row gap-5 overflow-y-auto md:overflow-hidden font-sans border-2 border-[#FFD700]/30 cursor-default max-h-[90vh] md:max-h-[85vh]"
             onClick={(e) => e.stopPropagation()}
             style={{
               backgroundImage: 'radial-gradient(circle at center, rgba(57,204,204,0.12) 0%, transparent 85%)',
@@ -308,16 +308,16 @@ export default function App() {
               )}
             </div>
 
-            <div className="flex-1 flex flex-col text-[#F5F5DC] min-w-0">
+            <div className="flex-1 flex flex-col text-[#F5F5DC] min-w-0 md:overflow-y-auto md:pr-2">
               <div className="border-b border-white/10 pb-3 mb-3">
-                <span className="font-sans text-sm uppercase tracking-wide text-[#39CCCC] font-black bg-[#39CCCC]/10 px-3 py-1.5 rounded">
+                <span className="font-sans text-[10px] uppercase tracking-wider text-[#39CCCC] font-black bg-[#39CCCC]/10 px-2 py-0.5 rounded">
                   CLASSIFIED INTELLIGENCE OVERVIEW
                 </span>
-                <h1 className="text-3xl font-black text-[#FFD700] uppercase tracking-wide mt-2">
+                <h1 className="text-2xl font-black text-[#FFD700] uppercase tracking-wide mt-2">
                   {spotlightCharacter.name}
                 </h1>
                 {spotlightCharacter.quote && (
-                  <p className="text-base text-[#F5F5DC]/90 mt-3 border-l-2 border-[#FFD700]/80 pl-3 leading-relaxed">
+                  <p className="text-sm text-[#F5F5DC]/90 mt-2.5 border-l-2 border-[#FFD700]/80 pl-3 leading-relaxed">
                     &ldquo;{spotlightCharacter.quote}&rdquo;
                   </p>
                 )}
@@ -325,22 +325,22 @@ export default function App() {
 
               <div className="space-y-3 flex-1">
                 <div>
-                  <h4 className="text-sm tracking-wide font-black text-[#FFD700] mb-2 font-sans uppercase">
+                  <h4 className="text-xs tracking-wide font-black text-[#FFD700] mb-2 font-sans uppercase">
                     HISTORIC SUMMARY OF DEEDS
                   </h4>
-                  <p className="font-sans text-base text-stone-200 leading-relaxed text-left text-justify">
+                  <p className="font-sans text-sm text-stone-250 leading-relaxed text-left text-justify">
                     {spotlightCharacter.backstorySummary}
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-[#0A1929] border border-[#39CCCC]/20 p-4 rounded-lg">
-                    <h5 className="text-sm text-[#39CCCC] font-black font-sans tracking-wide uppercase mb-2 flex gap-1.5 items-center">
-                      <Sparkles className="h-4.5 w-4.5" /> Powers & Techniques
+                    <h5 className="text-xs text-[#39CCCC] font-black font-sans tracking-wide uppercase mb-2 flex gap-1.5 items-center">
+                      <Sparkles className="h-4 w-4" /> Powers & Techniques
                     </h5>
                     <div className="flex flex-wrap gap-1.5">
                       {spotlightCharacter.abilities.map((abi, idx) => (
-                        <span key={idx} className="bg-black/30 border border-[#39CCCC]/20 text-[#39CCCC] font-sans text-sm px-2.5 py-1 rounded-sm uppercase font-bold">
+                        <span key={idx} className="bg-black/30 border border-[#39CCCC]/20 text-[#39CCCC] font-sans text-xs px-2 py-0.5 rounded-sm uppercase font-bold">
                           {abi}
                         </span>
                       ))}
@@ -348,19 +348,19 @@ export default function App() {
                   </div>
 
                   <div className="bg-[#0A1929] border border-[#FFD700]/20 p-4 rounded-lg">
-                    <h5 className="text-sm text-[#FFD700] font-black font-sans tracking-wide uppercase mb-2 flex gap-1.5 items-center">
-                      <Award className="h-4.5 w-4.5" /> Haki Manifestations
+                    <h5 className="text-xs text-[#FFD700] font-black font-sans tracking-wide uppercase mb-2 flex gap-1.5 items-center">
+                      <Award className="h-4 w-4" /> Haki Manifestations
                     </h5>
                     {spotlightCharacter.haki.length > 0 ? (
                       <div className="flex flex-wrap gap-1.5">
                         {spotlightCharacter.haki.map((hak, idx) => (
-                          <span key={idx} className="bg-black/30 border border-[#FFD700]/20 text-[#FFD700] font-sans text-sm px-2.5 py-1 rounded-sm capitalize font-bold">
+                          <span key={idx} className="bg-black/30 border border-[#FFD700]/20 text-[#FFD700] font-sans text-xs px-2 py-0.5 rounded-sm capitalize font-bold">
                             {hak}
                           </span>
                          ))}
                       </div>
                     ) : (
-                      <span className="text-sm font-sans text-stone-400">None logged</span>
+                      <span className="text-xs font-sans text-stone-400">None logged</span>
                     )}
                   </div>
                 </div>
@@ -368,14 +368,14 @@ export default function App() {
                 {selectedFactionFilter === 'NavyAdmirals' && spotlightCharacter.faction === 'NavyAdmirals' && (
                   <div className="bg-blue-950/20 border border-blue-900/30 p-4 rounded-sm flex flex-col gap-2.5">
                     <div className="flex justify-between items-center border-b border-blue-900/40 pb-2">
-                      <span className="text-sm uppercase text-blue-400 font-black">Justice Philosophy</span>
+                      <span className="text-xs uppercase text-blue-400 font-black">Justice Philosophy</span>
                     </div>
-                    <p className="text-base text-stone-200">
+                    <p className="text-sm text-stone-200">
                       📢 "{spotlightCharacter.justicePhilosophy || "Universal Justice"}"
                     </p>
-                    <div className="flex justify-between items-center text-sm mt-1.5 font-bold">
+                    <div className="flex justify-between items-center text-xs mt-1.5 font-bold">
                       <span className="text-stone-400">CROSS GUILD ACCLAIM:</span>
-                      <span className="font-sans font-black text-amber-400">
+                      <span className="font-sans font-black text-amber-400 text-xs">
                         ⭐ {spotlightCharacter.crossGuildBounty}
                       </span>
                     </div>
@@ -384,14 +384,14 @@ export default function App() {
 
                 {spotlightCharacter.bountyHistory && spotlightCharacter.bountyHistory.length > 0 && (
                   <div className="pt-3 border-t border-white/10">
-                    <h4 className="text-sm uppercase tracking-wide font-black text-[#FFD700] mb-3 font-sans">
+                    <h4 className="text-xs uppercase tracking-wide font-black text-[#FFD700] mb-3 font-sans">
                       BOUNTY CHRONOLOGICAL PROGRESSION
                     </h4>
                     <div className="flex gap-3 pb-1 overflow-x-auto scrollbar-thin select-none py-1">
                       {spotlightCharacter.bountyHistory.map((hist, idx) => (
                         <div key={idx} className="bg-[#0A1929] border border-[#FFD700]/20 rounded px-4 py-2.5 min-w-[150px] relative text-center flex-shrink-0">
-                           <span className="block text-sm text-[#F5F5DC]/80 uppercase truncate tracking-wide font-sans font-bold">{hist.arc}</span>
-                           <span className="block font-sans text-sm md:text-base text-[#E60012] font-black mt-1">฿ {hist.amount}</span>
+                           <span className="block text-xs text-[#F5F5DC]/80 uppercase truncate tracking-wide font-sans font-bold">{hist.arc}</span>
+                           <span className="block font-sans text-xs md:text-sm text-[#E60012] font-black mt-1">฿ {hist.amount}</span>
                         </div>
                       ))}
                     </div>

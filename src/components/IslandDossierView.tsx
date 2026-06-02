@@ -23,6 +23,8 @@ export default function IslandDossierView({
 
   const rosterCharacters = allCharacters.filter(c => 
     island.characterRoster.includes(c.name)
+  ).filter((char, index, self) =>
+    self.findIndex(c => c.name === char.name) === index
   );
 
   const involvedFruits = allFruits.filter(f => 

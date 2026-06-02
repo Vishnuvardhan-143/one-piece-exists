@@ -196,7 +196,7 @@ export default function EncyclopediaView({
           onClick={() => setSelectedSpotlight(null)}
         >
           <div 
-            className="relative my-auto w-full max-w-4xl bg-[#001F3F] border border-[#FFD700]/35 rounded-lg shadow-2xl p-6 md:p-8 flex flex-col md:flex-row gap-8 overflow-hidden cursor-default"
+            className="relative my-auto w-full max-w-4xl bg-[#001F3F] border border-[#FFD700]/35 rounded-lg shadow-2xl p-6 md:p-8 flex flex-col md:flex-row gap-8 overflow-y-auto md:overflow-hidden cursor-default max-h-[90vh] md:max-h-[85vh]"
             onClick={(e) => e.stopPropagation()}
             style={{
               backgroundImage: 'radial-gradient(circle at 12% 20%, rgba(57,204,204,0.05) 0%, rgba(0,31,63,0.3) 100%)',
@@ -232,19 +232,19 @@ export default function EncyclopediaView({
             </div>
 
             {/* Right column: Deep details and records */}
-            <div className="flex-1 flex flex-col text-[#F5F5DC]">
+            <div className="flex-1 flex flex-col text-[#F5F5DC] min-w-0 md:overflow-y-auto md:pr-2">
               
               {/* Header */}
               <div className="border-b border-white/10 pb-4 mb-4">
-                <span className="font-sans text-xs uppercase tracking-wide text-[#39CCCC] font-black">
+                <span className="font-sans text-[10px] uppercase tracking-wider text-[#39CCCC] font-black bg-[#39CCCC]/10 px-2 py-0.5 rounded">
                   MARINE RECONNAISSANCE DOSSIER
                 </span>
-                <h1 className="text-4xl font-black text-[#FFD700] uppercase tracking-wide mt-2 truncate">
+                <h1 className="text-2xl font-black text-[#FFD700] uppercase tracking-wide mt-2 truncate">
                   {selectedSpotlight.name}
                 </h1>
                 
                 {selectedSpotlight.quote && (
-                  <p className="font-sans text-sm text-[#39CCCC] italic mt-2.5 border-l-2 border-[#39CCCC]/45 pl-3.5 leading-relaxed">
+                  <p className="font-sans text-xs text-[#39CCCC] italic mt-2.5 border-l-2 border-[#39CCCC]/45 pl-3.5 leading-relaxed">
                     &ldquo;{selectedSpotlight.quote}&rdquo;
                   </p>
                 )}
@@ -309,7 +309,7 @@ export default function EncyclopediaView({
                         MARINES HIGH RANKING
                       </span>
                     </div>
-                    <p className="font-sans text-sm italic text-stone-300 leading-normal">
+                    <p className="font-sans text-xs italic text-stone-300 leading-normal">
                       📢 "{selectedSpotlight.justicePhilosophy || "Universal Justice"}"
                     </p>
                     <div className="flex justify-between items-center mt-1.5 text-xs">

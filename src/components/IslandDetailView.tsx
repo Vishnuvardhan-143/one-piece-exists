@@ -28,6 +28,8 @@ export default function IslandDetailView({
   // Map the roster names to actual database character profiles
   const rosterCharacters = allCharacters.filter(c => 
     island.characterRoster.includes(c.name)
+  ).filter((char, index, self) =>
+    self.findIndex(c => c.name === char.name) === index
   );
 
   // Map the island's devil fruit names to actual fruit database objects
