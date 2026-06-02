@@ -271,9 +271,9 @@ export default function App() {
 
       {/* ==================== GLOBAL DETAILED SPOTLIGHT DRIER DRAWER MODAL ==================== */}
       {spotlightCharacter && (
-        <div className="fixed inset-0 bg-black/90 z-60 flex items-center justify-center p-4 backdrop-blur-lg overflow-y-auto animate-fade-in text-[#F5F5DC]">
+        <div className="fixed inset-0 bg-black/90 z-60 flex justify-center p-4 backdrop-blur-lg overflow-y-auto animate-fade-in text-[#F5F5DC]">
           <div 
-            className="relative w-full max-w-3xl glass-panel-glossy glow-gold rounded-xl p-4 md:p-6 flex flex-col md:flex-row gap-5 overflow-hidden font-sans border-2 border-[#FFD700]/30"
+            className="relative my-auto w-full max-w-3xl glass-panel-glossy glow-gold rounded-xl p-4 md:p-6 flex flex-col md:flex-row gap-5 overflow-hidden font-sans border-2 border-[#FFD700]/30"
             style={{
               backgroundImage: 'radial-gradient(circle at center, rgba(57,204,204,0.12) 0%, transparent 85%)',
             }}

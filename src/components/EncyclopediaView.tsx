@@ -191,9 +191,9 @@ export default function EncyclopediaView({
 
       {/* ==================== CHARACTER IMMERSIVE SPOTLIGHT MODAL ==================== */}
       {selectedSpotlight && (
-        <div className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4 backdrop-blur-md overflow-y-auto animate-fade-in select-none">
+        <div className="fixed inset-0 bg-black/85 z-50 flex justify-center p-4 backdrop-blur-md overflow-y-auto animate-fade-in select-none">
           <div 
-            className="relative w-full max-w-4xl bg-[#001F3F] border border-[#FFD700]/35 rounded-lg shadow-2xl p-6 md:p-8 flex flex-col md:flex-row gap-8 overflow-hidden"
+            className="relative my-auto w-full max-w-4xl bg-[#001F3F] border border-[#FFD700]/35 rounded-lg shadow-2xl p-6 md:p-8 flex flex-col md:flex-row gap-8 overflow-hidden"
             style={{
               backgroundImage: 'radial-gradient(circle at 12% 20%, rgba(57,204,204,0.05) 0%, rgba(0,31,63,0.3) 100%)',
             }}
