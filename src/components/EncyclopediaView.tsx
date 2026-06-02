@@ -192,6 +192,15 @@ export default function EncyclopediaView({
       {/* ==================== CHARACTER IMMERSIVE SPOTLIGHT MODAL ==================== */}
       {selectedSpotlight && (
         <div className="fixed inset-0 bg-black/85 z-50 flex justify-center p-4 backdrop-blur-md overflow-y-auto animate-fade-in select-none">
+          {/* Floating Viewport-Fixed Close Button */}
+          <button
+            onClick={() => setSelectedSpotlight(null)}
+            className="fixed top-4 right-4 md:top-6 md:right-8 bg-[#0A1929] border-2 border-[#FFD700]/60 hover:bg-[#E60012] hover:border-white text-[#FFD700] hover:text-white p-3 rounded-full focus:outline-none transition-all duration-300 hover:scale-110 cursor-pointer shadow-2xl z-70 flex items-center justify-center"
+            title="Close Dossier"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
           <div 
             className="relative my-auto w-full max-w-4xl bg-[#001F3F] border border-[#FFD700]/35 rounded-lg shadow-2xl p-6 md:p-8 flex flex-col md:flex-row gap-8 overflow-hidden"
             style={{
@@ -200,14 +209,6 @@ export default function EncyclopediaView({
           >
             {/* Background textured filter */}
             <div className="absolute inset-0 pointer-events-none mix-blend-multiply opacity-25 bg-[radial-gradient(ellipse_at_center,_#39CCCC,_#001F3F,_#000)]" />
-
-            {/* Exit top button */}
-            <button
-              onClick={() => setSelectedSpotlight(null)}
-              className="absolute top-4 right-4 bg-[#0A1929] border border-white/15 text-stone-300 hover:text-white p-2 rounded-full focus:outline-none transition-transform hover:scale-110 cursor-pointer hover:border-[#FFD700]/55"
-            >
-              <X className="h-5 w-5" />
-            </button>
 
             {/* left column: Wanted poster representation */}
             <div className="w-full md:w-fit flex-shrink-0 flex flex-col items-center gap-4">
