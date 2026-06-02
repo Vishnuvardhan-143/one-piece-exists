@@ -59,10 +59,13 @@ export default function App() {
       <header className="relative z-10 w-full bg-[#001F3F]/75 border-b border-white/10 shadow-2xl glass-panel-glossy">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-6">
           
-          {/* Logo & Vibe */}
-          <div className="flex gap-4 items-center">
+          {/* Logo & Vibe - Clickable to go home */}
+          <button 
+            onClick={() => setCurrentTab('map')}
+            className="flex gap-4 items-center cursor-pointer text-left group transition-transform hover:scale-102"
+          >
             {/* Spinning Golden Compass inside a Crimson Seal */}
-            <div className="relative w-12 h-12 rounded-full border-2 border-[#FFD700] flex items-center justify-center bg-[#E60012] shadow-[0_0_15px_rgba(230,0,18,0.5)] flex-shrink-0 animate-pulse">
+            <div className="relative w-12 h-12 rounded-full border-2 border-[#FFD700] flex items-center justify-center bg-[#E60012] shadow-[0_0_15px_rgba(230,0,18,0.5)] flex-shrink-0 animate-pulse group-hover:shadow-[0_0_25px_rgba(230,0,18,0.8)] transition-shadow">
               <Compass className="h-6 w-6 text-white animate-[spin_25s_linear_infinite]" />
               <div className="absolute w-1 h-1 bg-white rounded-full" />
             </div>
@@ -72,17 +75,17 @@ export default function App() {
                 <span className="text-sm bg-[#E60012] font-sans font-black px-3 py-1 rounded tracking-wide uppercase">THE GRAND LINE</span>
                 <span className="text-sm bg-[#39CCCC]/20 font-sans text-[#39CCCC] border border-[#39CCCC]/30 font-black px-3 py-1 rounded tracking-wide uppercase">MARINE CLASSIFIED</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-black tracking-wide text-[#FFD700] mt-1.5 text-glow-gold">
+              <h1 className="text-3xl md:text-4xl font-black tracking-wide text-[#FFD700] mt-1.5 text-glow-gold group-hover:brightness-125 transition-all">
                 GRAND LINE NAVIGATOR
               </h1>
-              <p className="text-sm md:text-base font-sans text-stone-350 tracking-wider uppercase mt-1.5">
+              <p className="text-xs md:text-sm font-sans text-stone-350 tracking-wider uppercase mt-1.5 group-hover:text-stone-200 transition-colors">
                 COMPREHENSIVE ADVENTURE VOYAGER & CORSAIR ENCYCLOPEDIA
               </p>
             </div>
-          </div>
+          </button>
 
           {/* Quick interactive navigation tabs conforming to the Sleek Interface */}
-          <nav className="flex flex-wrap gap-6 text-base md:text-lg font-bold uppercase tracking-tight select-none">
+          <nav className="flex flex-wrap gap-6 text-sm md:text-base font-bold uppercase tracking-tight select-none">
             <button
               onClick={() => setCurrentTab('map')}
               className={`pb-1.5 transition-all duration-300 font-black uppercase tracking-wider cursor-pointer border-b-2 ${
@@ -120,7 +123,7 @@ export default function App() {
         </div>
 
         {/* Dynamic global tickers banner aligned to Sleek Interface */}
-        <div className="bg-[#001428]/60 backdrop-blur-md border-t border-white/5 py-3.5 px-6 select-none shadow-inner text-stone-300 text-sm md:text-base font-sans tracking-wide uppercase truncate flex justify-center gap-6 md:gap-12 flex-wrap text-center items-center font-bold">
+        <div className="bg-[#001428]/60 backdrop-blur-md border-t border-white/5 py-2.5 px-6 select-none shadow-inner text-stone-300 text-xs md:text-sm font-sans tracking-wide uppercase truncate flex justify-center gap-6 md:gap-12 flex-wrap text-center items-center font-bold">
           <div className="flex items-center gap-2"><Anchor className="h-5 w-5 text-[#39CCCC] animate-pulse" /> <span>DATABASE STATUS: <span className="text-[#39CCCC] font-extrabold">29 ISLANDS PLOTTED</span></span></div>
           <div className="flex items-center gap-2"><Skull className="h-5 w-5 text-[#E60012]" /> <span>YONKO ACTIVE FILES: <span className="text-[#FFD700] font-extrabold text-glow-gold">7 EMPERORS LOGGED</span></span></div>
           <div className="flex items-center gap-2"><Flame className="h-5 w-5 text-orange-500" /> <span>ACCUMULATED HIGH-SEAS BOUNTIES: <span className="text-[#E60012] font-extrabold">฿ 63.8 BILLION</span></span></div>
@@ -242,6 +245,8 @@ export default function App() {
             allFruits={DEVIL_FRUITS_DB}
             onBack={() => setCurrentTab('map')}
             onCharacterSelect={(char) => setSpotlightCharacter(char)}
+            onPrevIsland={handlePrevIsland}
+            onNextIsland={handleNextIsland}
           />
         )}
 

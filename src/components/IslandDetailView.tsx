@@ -80,7 +80,7 @@ export default function IslandDetailView({
             </div>
 
             {/* Island Title */}
-            <h1 className="text-4xl md:text-5xl font-black text-[#FFD700] uppercase tracking-wide leading-none drop-shadow-md">
+            <h1 className="text-3xl md:text-4xl font-black text-[#FFD700] uppercase tracking-wide leading-none drop-shadow-md">
               {island.name}
             </h1>
             <p className="text-base text-stone-300 italic font-sans mt-2">

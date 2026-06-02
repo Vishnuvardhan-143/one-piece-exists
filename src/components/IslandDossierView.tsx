@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Island, Character, DevilFruit } from '../types';
 import WantedPoster from './WantedPoster';
 import DevilFruitCard from './DevilFruitCard';
-import { ArrowLeft, Anchor, MapPin, Swords, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, Anchor, MapPin, Swords, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface IslandDossierViewProps {
   island: Island;
@@ -10,6 +10,8 @@ interface IslandDossierViewProps {
   allFruits: DevilFruit[];
   onBack: () => void;
   onCharacterSelect: (character: Character) => void;
+  onPrevIsland: () => void;
+  onNextIsland: () => void;
 }
 
 export default function IslandDossierView({
@@ -17,7 +19,9 @@ export default function IslandDossierView({
   allCharacters,
   allFruits,
   onBack,
-  onCharacterSelect
+  onCharacterSelect,
+  onPrevIsland,
+  onNextIsland
 }: IslandDossierViewProps) {
   const [hoveredFruit, setHoveredFruit] = useState<DevilFruit | null>(null);
 
@@ -50,7 +54,7 @@ export default function IslandDossierView({
               <span className="text-stone-500">&bull;</span>
               <span className="text-[#39CCCC]">{island.islandTheme}</span>
             </div>
-            <h1 className="text-5xl font-black uppercase tracking-wide text-[#FFD700] mt-2">
+            <h1 className="text-3xl md:text-4xl font-black uppercase tracking-wide text-[#FFD700] mt-2">
               {island.name} Dossier
             </h1>
           </div>
@@ -76,12 +80,28 @@ export default function IslandDossierView({
       </div>
 
       {/* Showcase box containing the uncropped image */}
-      <div className="relative w-full rounded-xl border border-white/10 overflow-hidden shadow-2xl bg-black/50 p-4 flex flex-col items-center">
+      <div className="relative w-full rounded-xl border border-white/10 overflow-hidden shadow-2xl bg-black/50 p-4 flex flex-col items-center group">
+        {/* Navigation Buttons - Appear on hover */}
+        <button
+          onClick={onPrevIsland}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#0A1929]/80 hover:bg-[#39CCCC] text-[#39CCCC] hover:text-[#0A1929] p-3 rounded-full backdrop-blur-md border border-[#39CCCC]/30 hover:border-[#39CCCC] transition-all z-10 opacity-0 group-hover:opacity-100 shadow-xl cursor-pointer"
+          title="Previous Island"
+        >
+          <ChevronLeft className="w-8 h-8" />
+        </button>
+        <button
+          onClick={onNextIsland}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#0A1929]/80 hover:bg-[#39CCCC] text-[#39CCCC] hover:text-[#0A1929] p-3 rounded-full backdrop-blur-md border border-[#39CCCC]/30 hover:border-[#39CCCC] transition-all z-10 opacity-0 group-hover:opacity-100 shadow-xl cursor-pointer"
+          title="Next Island"
+        >
+          <ChevronRight className="w-8 h-8" />
+        </button>
+
         {/* Full Image */}
         <img
           src={island.headerImage}
           alt={island.name}
-          className="w-full max-h-[70vh] object-contain rounded-lg transition-all duration-300 hover:brightness-105"
+          className="w-full max-h-[70vh] object-contain rounded-lg transition-all duration-500 group-hover:brightness-105"
         />
 
         {/* Small Caption */}

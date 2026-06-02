@@ -24,7 +24,7 @@ const generateSphereDots = (count: number) => {
   return points;
 };
 
-const GLOBE_RADIUS = 180;
+const GLOBE_RADIUS = 220;
 const SPHERE_DOTS = generateSphereDots(450);
 
 export default function MapNavigator({ islands, activeIslandId, onIslandSelect }: MapNavigatorProps) {
@@ -150,8 +150,9 @@ export default function MapNavigator({ islands, activeIslandId, onIslandSelect }
       // Clamp pitch to avoid turning the globe upside down
       pitchRef.current = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, pitchRef.current));
 
-      const width = canvas.width;
-      const height = canvas.height;
+      const rect = canvas.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
       const cx = width / 2;
       const cy = height / 2;
 
@@ -173,22 +174,22 @@ export default function MapNavigator({ islands, activeIslandId, onIslandSelect }
       };
 
       // 1. Draw glowing background grid & radial atmospheric space glow
-      const oceanBgGlow = ctx.createRadialGradient(cx, cy, GLOBE_RADIUS * 0.6, cx, cy, GLOBE_RADIUS);
-      oceanBgGlow.addColorStop(0, 'rgba(0, 31, 63, 0.4)');
-      oceanBgGlow.addColorStop(0.8, 'rgba(10, 25, 41, 0.7)');
-      oceanBgGlow.addColorStop(1, 'rgba(57, 204, 204, 0.15)');
+      const oceanBgGlow = ctx.createRadialGradient(cx, cy, GLOBE_RADIUS * 0.5, cx, cy, GLOBE_RADIUS);
+      oceanBgGlow.addColorStop(0, 'rgba(0, 15, 30, 0.6)');
+      oceanBgGlow.addColorStop(0.8, 'rgba(10, 35, 60, 0.8)');
+      oceanBgGlow.addColorStop(1, 'rgba(57, 204, 204, 0.3)');
       ctx.beginPath();
       ctx.arc(cx, cy, GLOBE_RADIUS, 0, 2 * Math.PI);
       ctx.fillStyle = oceanBgGlow;
       ctx.fill();
 
       // 2. Draw atmospheric halo (Outer glow)
-      const atmosphereGlow = ctx.createRadialGradient(cx, cy, GLOBE_RADIUS, cx, cy, GLOBE_RADIUS + 35);
-      atmosphereGlow.addColorStop(0, 'rgba(57, 204, 204, 0.3)');
-      atmosphereGlow.addColorStop(0.5, 'rgba(57, 204, 204, 0.08)');
+      const atmosphereGlow = ctx.createRadialGradient(cx, cy, GLOBE_RADIUS, cx, cy, GLOBE_RADIUS + 45);
+      atmosphereGlow.addColorStop(0, 'rgba(57, 204, 204, 0.4)');
+      atmosphereGlow.addColorStop(0.4, 'rgba(57, 204, 204, 0.1)');
       atmosphereGlow.addColorStop(1, 'rgba(57, 204, 204, 0)');
       ctx.beginPath();
-      ctx.arc(cx, cy, GLOBE_RADIUS + 35, 0, 2 * Math.PI);
+      ctx.arc(cx, cy, GLOBE_RADIUS + 45, 0, 2 * Math.PI);
       ctx.fillStyle = atmosphereGlow;
       ctx.fill();
 
