@@ -271,24 +271,28 @@ export default function App() {
 
       {/* ==================== GLOBAL DETAILED SPOTLIGHT DRIER DRAWER MODAL ==================== */}
       {spotlightCharacter && (
-        <div className="fixed inset-0 bg-black/90 z-60 flex justify-center p-4 backdrop-blur-lg overflow-y-auto animate-fade-in text-[#F5F5DC]">
-          {/* Floating Viewport-Fixed Close Button */}
-          <button
-            onClick={() => setSpotlightCharacter(null)}
-            className="fixed top-4 right-4 md:top-6 md:right-8 bg-[#0A1929] border-2 border-[#FFD700]/60 hover:bg-[#E60012] hover:border-white text-[#FFD700] hover:text-white p-3 rounded-full focus:outline-none transition-all duration-300 hover:scale-110 cursor-pointer shadow-2xl z-70 flex items-center justify-center"
-            title="Close Dossier"
-          >
-            <X className="h-6 w-6" />
-          </button>
-
+        <div 
+          className="fixed inset-0 bg-black/90 z-60 flex justify-center p-4 backdrop-blur-lg overflow-y-auto animate-fade-in text-[#F5F5DC] cursor-pointer"
+          onClick={() => setSpotlightCharacter(null)}
+        >
           <div 
-            className="relative my-auto w-full max-w-3xl glass-panel-glossy glow-gold rounded-xl p-4 md:p-6 flex flex-col md:flex-row gap-5 overflow-hidden font-sans border-2 border-[#FFD700]/30"
+            className="relative my-auto w-full max-w-3xl glass-panel-glossy glow-gold rounded-xl p-4 md:p-6 flex flex-col md:flex-row gap-5 overflow-hidden font-sans border-2 border-[#FFD700]/30 cursor-default"
+            onClick={(e) => e.stopPropagation()}
             style={{
               backgroundImage: 'radial-gradient(circle at center, rgba(57,204,204,0.12) 0%, transparent 85%)',
             }}
           >
             {/* Sleek metallic grid overlay */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-repeat" style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+
+            {/* Top-Right Close Button */}
+            <button
+              onClick={() => setSpotlightCharacter(null)}
+              className="absolute top-4 right-4 bg-[#0A1929] border border-[#FFD700]/30 text-[#FFD700] hover:bg-[#E60012] hover:text-white p-2 rounded-full focus:outline-none transition-transform hover:scale-110 cursor-pointer shadow-lg z-20"
+              title="Close Dossier"
+            >
+              <X className="h-5 w-5" />
+            </button>
 
             <div className="w-full md:w-fit flex-shrink-0 flex flex-col items-center gap-4 select-none">
               <WantedPoster character={spotlightCharacter} />
@@ -386,8 +390,8 @@ export default function App() {
                     <div className="flex gap-3 pb-1 overflow-x-auto scrollbar-thin select-none py-1">
                       {spotlightCharacter.bountyHistory.map((hist, idx) => (
                         <div key={idx} className="bg-[#0A1929] border border-[#FFD700]/20 rounded px-4 py-2.5 min-w-[150px] relative text-center flex-shrink-0">
-                          <span className="block text-sm text-[#F5F5DC]/80 uppercase truncate tracking-wide font-sans font-bold">{hist.arc}</span>
-                          <span className="block font-sans text-sm md:text-base text-[#E60012] font-black mt-1">฿ {hist.amount}</span>
+                           <span className="block text-sm text-[#F5F5DC]/80 uppercase truncate tracking-wide font-sans font-bold">{hist.arc}</span>
+                           <span className="block font-sans text-sm md:text-base text-[#E60012] font-black mt-1">฿ {hist.amount}</span>
                         </div>
                       ))}
                     </div>
@@ -395,7 +399,15 @@ export default function App() {
                 )}
               </div>
 
-              <div className="mt-4 pt-3 border-t border-white/10 flex justify-between items-center text-sm font-sans text-stone-450 uppercase tracking-wide font-bold">
+              {/* Bottom close button */}
+              <button
+                onClick={() => setSpotlightCharacter(null)}
+                className="mt-6 w-full py-3 bg-[#E60012]/15 border border-[#E60012]/45 text-[#FFD700] hover:bg-[#E60012] hover:text-white rounded font-sans font-black tracking-wide uppercase transition-all duration-300 cursor-pointer text-center select-none"
+              >
+                Close Dossier
+              </button>
+
+              <div className="mt-6 pt-3 border-t border-white/10 flex justify-between items-center text-sm font-sans text-stone-450 uppercase tracking-wide font-bold">
                 <span>Dossier ref: MAP-SPOT-{spotlightCharacter.id.toUpperCase()}</span>
                 <span className="text-[#FFD700] font-black">SECURED FILES SYSTEM</span>
               </div>
