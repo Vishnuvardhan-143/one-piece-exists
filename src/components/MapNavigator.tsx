@@ -39,6 +39,9 @@ export default function MapNavigator({ islands, activeIslandId, onIslandSelect }
   // 3D Angles & Physics Refs (to avoid re-running useEffect setup on state change)
   const yawRef = useRef(-1.2); // Start tilted to view initial islands
   const pitchRef = useRef(0.2);
+  const displayedYawRef = useRef(-1.2);
+  const displayedPitchRef = useRef(0.2);
+  const parallaxOffsetRef = useRef({ yaw: 0, pitch: 0 });
   const targetYawRef = useRef<number | null>(null);
   const targetPitchRef = useRef<number | null>(null);
   const isAutoCenteringRef = useRef(false);
@@ -150,6 +153,13 @@ export default function MapNavigator({ islands, activeIslandId, onIslandSelect }
       // Clamp pitch to avoid turning the globe upside down
       pitchRef.current = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, pitchRef.current));
 
+      // Ease displayed angles towards target + parallax offset
+      const targetYaw = yawRef.current + (isDraggingRef.current ? 0 : parallaxOffsetRef.current.yaw);
+      const targetPitch = pitchRef.current + (isDraggingRef.current ? 0 : parallaxOffsetRef.current.pitch);
+      
+      displayedYawRef.current += (targetYaw - displayedYawRef.current) * 0.08;
+      displayedPitchRef.current += (targetPitch - displayedPitchRef.current) * 0.08;
+
       const rect = canvas.getBoundingClientRect();
       const width = rect.width;
       const height = rect.height;
@@ -161,13 +171,13 @@ export default function MapNavigator({ islands, activeIslandId, onIslandSelect }
       // Rotate points helper function
       const rotatePoint = (x: number, y: number, z: number) => {
         // Y-rotation (yaw)
-        const x1 = x * Math.cos(yawRef.current) + z * Math.sin(yawRef.current);
-        const z1 = -x * Math.sin(yawRef.current) + z * Math.cos(yawRef.current);
+        const x1 = x * Math.cos(displayedYawRef.current) + z * Math.sin(displayedYawRef.current);
+        const z1 = -x * Math.sin(displayedYawRef.current) + z * Math.cos(displayedYawRef.current);
         const y1 = y;
 
         // X-rotation (pitch)
-        const z2 = z1 * Math.cos(pitchRef.current) - y1 * Math.sin(pitchRef.current);
-        const y2 = z1 * Math.sin(pitchRef.current) + y1 * Math.cos(pitchRef.current);
+        const z2 = z1 * Math.cos(displayedPitchRef.current) - y1 * Math.sin(displayedPitchRef.current);
+        const y2 = z1 * Math.sin(displayedPitchRef.current) + y1 * Math.cos(displayedPitchRef.current);
         const x2 = x1;
 
         return { x: cx + x2, y: cy - y2, z: z2 };
@@ -502,6 +512,14 @@ export default function MapNavigator({ islands, activeIslandId, onIslandSelect }
       const localX = e.clientX - rect.left;
       const localY = e.clientY - rect.top;
 
+      // Mouse offset from center in range [-1, 1] for visual tilt parallax
+      const ndcX = (localX / rect.width) * 2 - 1;
+      const ndcY = (localY / rect.height) * 2 - 1;
+      parallaxOffsetRef.current = {
+        yaw: ndcX * 0.18,
+        pitch: -ndcY * 0.15
+      };
+
       const hovered = projectedNodesRef.current
         .filter(node => node.z > 0)
         .find(node => {
@@ -636,6 +654,10 @@ export default function MapNavigator({ islands, activeIslandId, onIslandSelect }
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
+          onPointerLeave={() => {
+            parallaxOffsetRef.current = { yaw: 0, pitch: 0 };
+            setHoveredIsland(null);
+          }}
           onClick={handleCanvasClick}
           className="w-full h-full cursor-grab active:cursor-grabbing block z-10"
         />

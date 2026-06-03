@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Island, Character, DevilFruit } from '../types';
+import { motion } from 'framer-motion';
 import WantedPoster from './WantedPoster';
 import DevilFruitCard from './DevilFruitCard';
 import { ChevronLeft, ChevronRight, ShieldCheck, Swords, Anchor, MapPin } from 'lucide-react';
@@ -138,7 +139,13 @@ export default function IslandDetailView({
         <div className="lg:col-span-2 space-y-8">
           
           {/* Article & Synopsis */}
-          <div className="bg-[#001F3F] border border-white/10 rounded-lg p-6 space-y-4 relative shadow-lg">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-[#001F3F] border border-white/10 rounded-lg p-6 space-y-4 relative shadow-lg"
+          >
             <div className="absolute top-4 right-4 text-stone-500 opacity-20">
               <Anchor className="h-12 w-12 text-[#FFD700] animate-[spin_50s_linear_infinite]" />
             </div>
@@ -151,10 +158,16 @@ export default function IslandDetailView({
             <p className="text-lg text-stone-250 leading-relaxed text-justify">
               {island.synopsis}
             </p>
-          </div>
+          </motion.div>
 
           {/* Devil Fruits section with interactive overlays */}
-          <div className="bg-[#001F3F] border border-white/10 rounded-lg p-6 relative shadow-lg">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-[#001F3F] border border-white/10 rounded-lg p-6 relative shadow-lg"
+          >
             <h3 className="text-base font-black tracking-wider text-[#FFD700] border-b border-white/10 pb-2.5 mb-4 flex items-center gap-2">
               <span className="w-2 h-4.5 bg-[#39CCCC] rounded-sm shadow-[0_0_8px_rgba(57,204,204,0.6)]" />
               DEVIL FRUITS OBSERVED/USED IN THIS ARC
@@ -194,10 +207,16 @@ export default function IslandDetailView({
                 </p>
               </div>
             )}
-          </div>
+          </motion.div>
 
           {/* Key Battles Dashboard */}
-          <div className="bg-[#001F3F] border border-white/10 rounded-lg p-6 space-y-4 shadow-lg">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-[#001F3F] border border-white/10 rounded-lg p-6 space-y-4 shadow-lg"
+          >
             <h3 className="text-base font-black tracking-wider text-[#FFD700] border-b border-white/10 pb-2.5 flex items-center gap-2">
               <span className="w-2 h-4.5 bg-[#39CCCC] rounded-sm shadow-[0_0_8px_rgba(57,204,204,0.6)]" />
               KEY BATTLES LOGGED
@@ -210,9 +229,14 @@ export default function IslandDetailView({
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {island.keyBattles.map((batt, idx) => (
-                  <div 
+                  <motion.div 
                     key={idx} 
-                    className="bg-[#0A1929] border border-white/10 p-5.5 rounded-lg space-y-3.5 flex flex-col justify-between hover:border-[#FFD700]/30 transition-all duration-300"
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4 }}
+                    whileHover={{ y: -4, borderColor: 'rgba(255, 215, 0, 0.3)' }}
+                    className="bg-[#0A1929] border border-white/10 p-5.5 rounded-lg space-y-3.5 flex flex-col justify-between shadow-md transition-colors"
                   >
                     <div>
                       {/* Combatants matching labels */}
@@ -234,11 +258,11 @@ export default function IslandDetailView({
                       <span>VICTOR:</span>
                       <span className="font-black uppercase text-[#FFD700]">{batt.victor}</span>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             )}
-          </div>
+          </motion.div>
 
         </div>
 
@@ -246,7 +270,13 @@ export default function IslandDetailView({
         <div className="space-y-8">
           
           {/* Active cast Character roster */}
-          <div className="bg-[#001F3F] border border-white/10 rounded-lg p-6 space-y-4 shadow-lg">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-[#001F3F] border border-white/10 rounded-lg p-6 space-y-4 shadow-lg"
+          >
             <h3 className="text-base font-black tracking-wider text-[#FFD700] border-b border-white/10 pb-2.5 flex items-center justify-between">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-4.5 bg-[#39CCCC] rounded-sm shadow-[0_0_8px_rgba(57,204,204,0.6)]" />
@@ -271,10 +301,16 @@ export default function IslandDetailView({
                 ))}
               </div>
             )}
-          </div>
+          </motion.div>
 
           {/* Bounty Updates log feed */}
-          <div className="bg-[#001F3F] border border-white/10 rounded-lg p-6 space-y-4 relative shadow-lg">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-[#001F3F] border border-white/10 rounded-lg p-6 space-y-4 relative shadow-lg"
+          >
             <h3 className="text-base font-black tracking-wider text-[#FFD700] border-b border-white/10 pb-2.5 flex items-center gap-2">
               <span className="w-2 h-4.5 bg-[#39CCCC] rounded-sm shadow-[0_0_8px_rgba(57,204,204,0.6)]" />
               BOUNTY REGISTRY MODIFICATIONS
@@ -308,7 +344,7 @@ export default function IslandDetailView({
                 ))}
               </div>
             )}
-          </div>
+          </motion.div>
 
         </div>
 

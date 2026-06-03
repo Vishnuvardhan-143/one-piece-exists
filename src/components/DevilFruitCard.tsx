@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DevilFruit, DevilFruitType } from '../types';
 import { Sparkles, Trophy, HelpCircle, Activity } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface DevilFruitCardProps {
   fruit: DevilFruit;
@@ -217,16 +218,25 @@ export default function DevilFruitCard({ fruit, onClick }: DevilFruitCardProps) 
   };
 
   return (
-    <div 
+    <motion.div 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
-      className={`group relative rounded-lg border p-6 transition-all duration-500 cursor-pointer overflow-hidden backdrop-blur-md flex flex-col items-center select-none ${styleMapping.bg} ${styleMapping.border} hover:border-[#39CCCC]/60`}
+      className={`group relative rounded-lg border p-6 cursor-pointer overflow-hidden backdrop-blur-md flex flex-col items-center select-none ${styleMapping.bg} ${styleMapping.border}`}
+      whileHover={{
+        y: -10,
+        scale: 1.02,
+        borderColor: 'rgba(57, 204, 204, 0.6)',
+      }}
+      transition={{
+        type: 'spring',
+        stiffness: 300,
+        damping: 20
+      }}
       style={{
         boxShadow: isHovered 
-          ? `0 20px 40px -15px ${styleMapping.aura}, inset 0 0 20px 2px ${styleMapping.aura}` 
+          ? `0 20px 40px -15px ${styleMapping.aura}, inset 0 0 25px 2px ${styleMapping.aura}` 
           : '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05)',
-        transform: isHovered ? 'translateY(-8px) scale(1.02)' : 'translateY(0) scale(1)'
       }}
     >
       {/* Decorative corners */}
@@ -241,14 +251,21 @@ export default function DevilFruitCard({ fruit, onClick }: DevilFruitCardProps) 
       </div>
 
       {/* Levitative Icon Wrapper */}
-      <div 
-        className="mb-4 transform transition-transform duration-700 ease-out"
-        style={{
-          transform: isHovered ? 'translateY(-12px) rotate(5deg) scale(1.1)' : 'translateY(0) rotate(0deg) scale(1)'
+      <motion.div 
+        className="mb-4"
+        animate={{
+          y: isHovered ? -12 : 0,
+          rotate: isHovered ? 5 : 0,
+          scale: isHovered ? 1.1 : 1,
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 260,
+          damping: 18
         }}
       >
         {renderFruitIcon()}
-      </div>
+      </motion.div>
 
       {/* Fruit Meta details */}
       <div className="text-center w-full">
@@ -292,6 +309,6 @@ export default function DevilFruitCard({ fruit, onClick }: DevilFruitCardProps) 
           </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

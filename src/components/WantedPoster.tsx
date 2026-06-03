@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Character } from '../types';
 import { Shield, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface WantedPosterProps {
   character: Character;
@@ -17,11 +18,21 @@ export default function WantedPoster({ character, onClick, compact = false }: Wa
 
   if (compact) {
     return (
-      <div 
-        className="group relative cursor-pointer overflow-hidden rounded-lg bg-[#0A1929] p-3 border border-white/10 hover:border-[#39CCCC] transition-all duration-300 flex items-center gap-3 shadow-lg"
+      <motion.div 
+        className="group relative cursor-pointer overflow-hidden rounded-lg bg-[#0A1929] p-3 border border-white/10 flex items-center gap-3 shadow-lg"
         onClick={onClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        whileHover={{
+          y: -4,
+          borderColor: 'rgba(57, 204, 204, 0.6)',
+          boxShadow: '0 15px 30px rgba(57, 204, 204, 0.15)'
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 400,
+          damping: 25
+        }}
       >
         <div className="relative h-14 w-12 flex-shrink-0 bg-[#001F3F] overflow-hidden rounded border border-white/10">
           <img 
@@ -48,18 +59,29 @@ export default function WantedPoster({ character, onClick, compact = false }: Wa
         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#39CCCC]">
           <Sparkles className="h-4 w-4 animate-pulse" />
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <div 
+    <motion.div 
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative cursor-pointer transition-all duration-500 select-none"
+      className="group relative cursor-pointer select-none"
       style={{
         perspective: '1000px',
+      }}
+      whileHover={{
+        y: -10,
+        rotateY: 8,
+        rotateX: 5,
+        scale: 1.04,
+      }}
+      transition={{
+        type: 'spring',
+        stiffness: 300,
+        damping: 20
       }}
     >
       {/* Wanted Poster Card Body */}
@@ -67,11 +89,8 @@ export default function WantedPoster({ character, onClick, compact = false }: Wa
         className="relative w-60 rounded-sm border-8 border-[#3A2D23] bg-[#E8D3B8] p-4 shadow-2 shadow-amber-950/80 transition-all duration-500 font-sans overflow-hidden flex flex-col items-center select-none"
         style={{
           boxShadow: isHovered 
-            ? '0 25px 50px -12px rgba(120, 53, 4, 0.45), 0 0 40px rgba(251, 191, 36, 0.15)' 
+            ? '0 25px 50px -12px rgba(120, 53, 4, 0.45), 0 0 45px rgba(251, 191, 36, 0.2)' 
             : '0 10px 30px -10px rgba(0,0,0,0.7)',
-          transform: isHovered 
-            ? 'rotateY(6deg) rotateX(4deg) scale(1.03) translateY(-6px)' 
-            : 'rotateY(0deg) rotateX(0deg) scale(1) translateY(0)',
           backgroundImage: 'linear-gradient(rgba(245,245,220,0.1) 1px, transparent 1px), radial-gradient(circle, rgba(120,53,4,0.04) 10%, transparent 11%)',
           backgroundSize: '20px 20px',
         }}
@@ -188,6 +207,6 @@ export default function WantedPoster({ character, onClick, compact = false }: Wa
           <span className="text-red-800 text-xs font-bold tracking-widest">DEAD/ALIVE</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
