@@ -112,7 +112,7 @@ export default function EncyclopediaView({
         </div>
 
         {/* Faction Pills selector */}
-        <div className="flex flex-wrap items-center justify-center gap-2 overflow-x-auto w-full select-none">
+        <div className="liquid-glass-strong rounded-3xl md:rounded-full px-3 py-2 flex flex-wrap items-center justify-center gap-1 overflow-x-auto w-full md:w-auto select-none mx-auto">
           {factionsList.map((f) => {
             const count = f.id === 'ALL'
               ? characters.filter((char, index, self) => self.findIndex(c => c.name === char.name) === index).length
@@ -122,14 +122,14 @@ export default function EncyclopediaView({
               <button
                 key={f.id}
                 onClick={() => onFactionChange(f.id)}
-                className={`px-3.5 py-2 text-sm font-bold rounded-md border font-sans tracking-wide transition-all uppercase flex items-center gap-2 focus:outline-none cursor-pointer ${
+                className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-2 ${
                   isSelected 
-                    ? 'bg-[#FFD700] text-black border-[#FFD700] font-black shadow-md' 
-                    : 'bg-[#0A1929] text-stone-300 border-white/10 hover:bg-[#001F3F] hover:border-white/25'
+                    ? 'bg-white text-stone-950 font-extrabold shadow-md' 
+                    : 'text-stone-300 hover:text-white hover:bg-white/5 bg-transparent border-transparent'
                 }`}
               >
                 <span>{f.label}</span>
-                <span className={`text-xs px-2 py-0.5 rounded font-sans font-bold ${isSelected ? 'bg-black/10 text-black font-extrabold' : `bg-[#001F3F] text-[#FFD700] border border-white/5` }`}>
+                <span className={`text-[10px] px-2 py-0.5 rounded-full font-sans font-bold ${isSelected ? 'bg-black/10 text-black font-extrabold' : 'bg-black/40 text-[#FFD700]' }`}>
                   {count}
                 </span>
               </button>

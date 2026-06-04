@@ -222,11 +222,10 @@ export default function DevilFruitCard({ fruit, onClick }: DevilFruitCardProps) 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
-      className={`group relative rounded-lg border p-6 cursor-pointer overflow-hidden backdrop-blur-md flex flex-col items-center select-none ${styleMapping.bg} ${styleMapping.border}`}
+      className={`group relative liquid-glass rounded px-8 pt-12 pb-24 cursor-pointer overflow-hidden flex flex-col items-center select-none ${styleMapping.bg}`}
       whileHover={{
         y: -10,
         scale: 1.02,
-        borderColor: 'rgba(57, 204, 204, 0.6)',
       }}
       transition={{
         type: 'spring',
@@ -239,11 +238,6 @@ export default function DevilFruitCard({ fruit, onClick }: DevilFruitCardProps) 
           : '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05)',
       }}
     >
-      {/* Decorative corners */}
-      <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-white/10 group-hover:border-[#39CCCC]/40 transition-colors" />
-      <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-white/10 group-hover:border-[#39CCCC]/40 transition-colors" />
-      <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-white/10 group-hover:border-[#39CCCC]/40 transition-colors" />
-      <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-white/10 group-hover:border-[#39CCCC]/40 transition-colors" />
 
       {/* Floating Sparkle Elements */}
       <div className="absolute top-4 right-4 text-amber-500/30 group-hover:text-[#FFD700]/80 transition-colors duration-500">
@@ -281,7 +275,7 @@ export default function DevilFruitCard({ fruit, onClick }: DevilFruitCardProps) 
       </div>
 
       {/* Interactive Typewriter Reveal Details */}
-      <div className="w-full mt-2 pt-2 border-t border-white/10 flex flex-col gap-1.5 text-left h-32 overflow-hidden relative font-sans">
+      <div className="w-full mt-2 pt-2 border-t border-white/10 flex flex-col gap-1.5 text-left min-h-[120px] relative font-sans">
         <div className="flex gap-1.5 items-center font-sans text-xs text-[#39CCCC] font-bold">
           <Trophy className="h-3.5 w-3.5 text-[#FFD700] flex-shrink-0" />
           <span className="uppercase tracking-wider">Known User:</span>
@@ -296,18 +290,18 @@ export default function DevilFruitCard({ fruit, onClick }: DevilFruitCardProps) 
           </span>
         </div>
 
-        <p className="text-sm text-stone-350 leading-relaxed line-clamp-4">
-          {fruit.abilitiesDescription}
-        </p>
-
-        {/* Awakening detail badge floating */}
-        <div className="absolute bottom-0 right-0 flex gap-1 items-center font-sans text-[10px] bg-black/40 px-2 py-0.5 rounded border border-stone-800/65 font-bold">
+        {/* Awakening detail badge styled statically to avoid overlaps */}
+        <div className="flex gap-1 items-center font-sans text-[10px] bg-black/40 px-2 py-0.5 w-fit rounded border border-stone-850/60 font-bold mt-0.5">
           <Activity className="h-3 w-3 text-amber-500" />
           <span className="text-stone-400 uppercase">State:</span>
           <span className={`font-black ${fruit.awakeningStatus === 'Awakened' ? 'text-[#FFD700]' : 'text-stone-500'}`}>
             {fruit.awakeningStatus}
           </span>
         </div>
+
+        <p className="text-sm text-stone-350 leading-relaxed line-clamp-4 mt-1">
+          {fruit.abilitiesDescription}
+        </p>
       </div>
     </motion.div>
   );

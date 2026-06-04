@@ -10,13 +10,14 @@ export const CHARACTERS_DB: Character[] = [
     bounty: "3,000,000,000 ฿",
     bountyValue: 3000000000,
     bountyHistory: [
-      { arc: "Arlong Park", amount: "30,000,000 ฿" },
-      { arc: "Alabasta", amount: "100,000,000 ฿" },
-      { arc: "Enies Lobby", amount: "300,000,000 ฿" },
-      { arc: "Marineford", amount: "400,000,000 ฿" },
-      { arc: "Dressrosa", amount: "500,000,000 ฿" },
-      { arc: "Whole Cake Island", amount: "1,500,000,000 ฿" },
-      { arc: "Wano Country", amount: "3,000,000,000 ฿" }
+      { arc: "Alabasta Saga", amount: "30,000,000 ฿" },
+      { arc: "Skypiea/Water 7/Enies Lobby", amount: "100,000,000 ฿" },
+      { arc: "Thriller Bark", amount: "300,000,000 ฿" },
+      { arc: "Summit War", amount: "400,000,000 ฿" },
+      { arc: "Fishmen Island/Punk Hazard/Dressrosa", amount: "400,000,000 ฿" },
+      { arc: "Whole Cake", amount: "1,500,000,000 ฿" },
+      { arc: "Wano", amount: "1,500,000,000 ฿" },
+      { arc: "Egghead", amount: "3,000,000,000 ฿" }
     ],
     dream: "To find the One Piece and become the King of the Pirates (and his secret dream shared only with his brothers and crew).",
     abilities: ["Gomu Gomu no Mi (Hito Hito no Mi, Model: Nika)", "Gear 2nd/3rd/4th", "Gear 5th (Awakening)", "Giant fists & rubber environmental bending"],
@@ -36,10 +37,14 @@ export const CHARACTERS_DB: Character[] = [
     bounty: "1,111,000,000 ฿",
     bountyValue: 1111000000,
     bountyHistory: [
-      { arc: "Alabasta", amount: "60,000,000 ฿" },
-      { arc: "Enies Lobby", amount: "120,000,000 ฿" },
-      { arc: "Dressrosa", amount: "320,000,000 ฿" },
-      { arc: "Wano Country", amount: "1,111,000,000 ฿" }
+      { arc: "Alabasta Saga", amount: "0 ฿" },
+      { arc: "Skypiea/Water 7/Enies Lobby", amount: "60,000,000 ฿" },
+      { arc: "Thriller Bark", amount: "120,000,000 ฿" },
+      { arc: "Summit War", amount: "120,000,000 ฿" },
+      { arc: "Fishmen Island/Punk Hazard/Dressrosa", amount: "120,000,000 ฿" },
+      { arc: "Whole Cake", amount: "320,000,000 ฿" },
+      { arc: "Wano", amount: "320,000,000 ฿" },
+      { arc: "Egghead", amount: "1,111,000,000 ฿" }
     ],
     dream: "To defeat Dracule Mihawk and become the World's Greatest Swordsman.",
     abilities: ["Three Sword Style (Santoryu)", "Kyutoryu (Nine Sword Style - Asura)", "Kokuto (Black Blade) wielding", "King of Hell Swordsmanship"],
@@ -58,9 +63,14 @@ export const CHARACTERS_DB: Character[] = [
     role: "Navigator / Weather Witch",
     bounty: "366,000,000 ฿",
     bountyHistory: [
-      { arc: "Enies Lobby", amount: "16,000,000 ฿" },
-      { arc: "Dressrosa", amount: "66,000,000 ฿" },
-      { arc: "Wano Country", amount: "366,000,000 ฿" }
+      { arc: "Alabasta Saga", amount: "0 ฿" },
+      { arc: "Skypiea/Water 7/Enies Lobby", amount: "0 ฿" },
+      { arc: "Thriller Bark", amount: "16,000,000 ฿" },
+      { arc: "Summit War", amount: "16,000,000 ฿" },
+      { arc: "Fishmen Island/Punk Hazard/Dressrosa", amount: "16,000,000 ฿" },
+      { arc: "Whole Cake", amount: "66,000,000 ฿" },
+      { arc: "Wano", amount: "66,000,000 ฿" },
+      { arc: "Egghead", amount: "366,000,000 ฿" }
     ],
     dream: "To draw a complete map of the entire world.",
     abilities: ["Clima-Tact weather manipulation", "Zeus (Sorcery Clima-Tact infusion)", "Mirage Tempo", "Exquisite meteorological prediction"],
@@ -79,9 +89,14 @@ export const CHARACTERS_DB: Character[] = [
     role: "Sniper / Tactician",
     bounty: "500,000,000 ฿",
     bountyHistory: [
-      { arc: "Enies Lobby (as Sogeking)", amount: "30,000,000 ฿" },
-      { arc: "Dressrosa", amount: "200,000,000 ฿" },
-      { arc: "Wano Country", amount: "500,000,000 ฿" }
+      { arc: "Alabasta Saga", amount: "0 ฿" },
+      { arc: "Skypiea/Water 7/Enies Lobby", amount: "0 ฿" },
+      { arc: "Thriller Bark", amount: "30,000,000 ฿" },
+      { arc: "Summit War", amount: "30,000,000 ฿" },
+      { arc: "Fishmen Island/Punk Hazard/Dressrosa", amount: "30,000,000 ฿" },
+      { arc: "Whole Cake", amount: "200,000,000 ฿" },
+      { arc: "Wano", amount: "200,000,000 ฿" },
+      { arc: "Egghead", amount: "500,000,000 ฿" }
     ],
     dream: "To become a proud warrior of the sea and visit Elbaf.",
     abilities: ["Kuro Kabuto Slingshot", "Pop Greens (Hostile plant seeds)", "Extreme sniping accuracy", "Incredible psychological bluffing & prevarications"],
@@ -100,10 +115,14 @@ export const CHARACTERS_DB: Character[] = [
     role: "Cook / Combat Triad",
     bounty: "1,032,000,000 ฿",
     bountyHistory: [
-      { arc: "Enies Lobby", amount: "77,000,000 ฿" },
-      { arc: "Dressrosa", amount: "177,000,000 ฿ (Only Alive)" },
-      { arc: "Whole Cake Island", amount: "330,000,000 ฿" },
-      { arc: "Wano Country", amount: "1,032,000,000 ฿" }
+      { arc: "Alabasta Saga", amount: "0 ฿" },
+      { arc: "Skypiea/Water 7/Enies Lobby", amount: "0 ฿" },
+      { arc: "Thriller Bark", amount: "77,000,000 ฿" },
+      { arc: "Summit War", amount: "77,000,000 ฿" },
+      { arc: "Fishmen Island/Punk Hazard/Dressrosa", amount: "77,000,000 ฿" },
+      { arc: "Whole Cake", amount: "330,000,000 ฿" },
+      { arc: "Wano", amount: "330,000,000 ฿" },
+      { arc: "Egghead", amount: "1,032,000,000 ฿" }
     ],
     dream: "To find the All Blue, a legendary ocean where all fish species co-exist.",
     abilities: ["Black Leg Style martial arts", "Diable Jambe (Friction fire)", "Ifrit Jambe (Plasma/blue flame & genetic speed-armor)", "Sky Walk", "Master culinary arts"],
@@ -123,9 +142,14 @@ export const CHARACTERS_DB: Character[] = [
     role: "Doctor",
     bounty: "1,000 ฿",
     bountyHistory: [
-      { arc: "Enies Lobby", amount: "50 ฿" },
-      { arc: "Dressrosa", amount: "100 ฿" },
-      { arc: "Wano Country", amount: "1,000 ฿" }
+      { arc: "Alabasta Saga", amount: "0 ฿" },
+      { arc: "Skypiea/Water 7/Enies Lobby", amount: "0 ฿" },
+      { arc: "Thriller Bark", amount: "50 ฿" },
+      { arc: "Summit War", amount: "50 ฿" },
+      { arc: "Fishmen Island/Punk Hazard/Dressrosa", amount: "50 ฿" },
+      { arc: "Whole Cake", amount: "100 ฿" },
+      { arc: "Wano", amount: "100 ฿" },
+      { arc: "Egghead", amount: "1,000 ฿" }
     ],
     dream: "To cure any disease and travel the world as a panacea doctor.",
     abilities: ["Hito Hito no Mi (Human-Human Fruit)", "Rumble Ball transformations (Heavy, Brain, Walk, Guard, Horn, Kung Fu, Monster Point)"],
@@ -144,10 +168,14 @@ export const CHARACTERS_DB: Character[] = [
     role: "Archaeologist",
     bounty: "930,000,000 ฿",
     bountyHistory: [
-      { arc: "Ohara (Age 8)", amount: "79,000,000 ฿" },
-      { arc: "Enies Lobby", amount: "80,000,000 ฿" },
-      { arc: "Dressrosa", amount: "130,000,000 ฿" },
-      { arc: "Wano Country", amount: "930,000,000 ฿" }
+      { arc: "Alabasta Saga", amount: "79,000,000 ฿" },
+      { arc: "Skypiea/Water 7/Enies Lobby", amount: "79,000,000 ฿" },
+      { arc: "Thriller Bark", amount: "80,000,000 ฿" },
+      { arc: "Summit War", amount: "80,000,000 ฿" },
+      { arc: "Fishmen Island/Punk Hazard/Dressrosa", amount: "80,000,000 ฿" },
+      { arc: "Whole Cake", amount: "130,000,000 ฿" },
+      { arc: "Wano", amount: "130,000,000 ฿" },
+      { arc: "Egghead", amount: "930,000,000 ฿" }
     ],
     dream: "To find the Rio Poneglyph and decipher the true history of the Void Century.",
     abilities: ["Hana Hana no Mi (Flower-Flower Fruit)", "Mil Fleur (Thousand Hands)", "Gigante Fleur (Giant limbs)", "Demonio Fleur (Giant demonic construct)", "Poneglyph literacy (Only survivor)"],
@@ -166,9 +194,14 @@ export const CHARACTERS_DB: Character[] = [
     role: "Shipwright",
     bounty: "394,000,000 ฿",
     bountyHistory: [
-      { arc: "Enies Lobby", amount: "44,000,000 ฿" },
-      { arc: "Dressrosa", amount: "94,000,000 ฿" },
-      { arc: "Wano Country", amount: "394,000,000 ฿" }
+      { arc: "Alabasta Saga", amount: "0 ฿" },
+      { arc: "Skypiea/Water 7/Enies Lobby", amount: "0 ฿" },
+      { arc: "Thriller Bark", amount: "44,000,000 ฿" },
+      { arc: "Summit War", amount: "44,000,000 ฿" },
+      { arc: "Fishmen Island/Punk Hazard/Dressrosa", amount: "44,000,000 ฿" },
+      { arc: "Whole Cake", amount: "94,000,000 ฿" },
+      { arc: "Wano", amount: "94,000,000 ฿" },
+      { arc: "Egghead", amount: "394,000,000 ฿" }
     ],
     dream: "To build a ship of dreams (Thousand Sunny), travel to the end of the sea, and see it withstand all trials.",
     abilities: ["Cola-powered Cyborg modifications", "General Franky (Giant iron mecha suit)", "Radical Beam (High heat laser)", "Weapons Left / Coup de Vent"],
@@ -187,9 +220,14 @@ export const CHARACTERS_DB: Character[] = [
     role: "Musician / Underworld Duelist",
     bounty: "383,000,000 ฿",
     bountyHistory: [
-      { arc: "Rumbar Era", amount: "33,000,000 ฿" },
-      { arc: "Dressrosa", amount: "83,000,000 ฿" },
-      { arc: "Wano Country", amount: "383,000,000 ฿" }
+      { arc: "Alabasta Saga", amount: "0 ฿" },
+      { arc: "Skypiea/Water 7/Enies Lobby", amount: "0 ฿" },
+      { arc: "Thriller Bark", amount: "0 ฿" },
+      { arc: "Summit War", amount: "33,000,000 ฿" },
+      { arc: "Fishmen Island/Punk Hazard/Dressrosa", amount: "33,000,000 ฿" },
+      { arc: "Whole Cake", amount: "83,000,000 ฿" },
+      { arc: "Wano", amount: "83,000,000 ฿" },
+      { arc: "Egghead", amount: "383,000,000 ฿" }
     ],
     dream: "To fulfill a promise by returning to Twin Cape to reunite with the island-whale Laboon.",
     abilities: ["Yomi Yomi no Mi (Revive-Revive Fruit)", "Soul Projection", "Cold of the Underworld sword (Soul Solid)", "Binks' Sake musical hypnotic inducement"],
@@ -208,10 +246,14 @@ export const CHARACTERS_DB: Character[] = [
     role: "Helmsman / Sea Combatant",
     bounty: "1,100,000,000 ฿",
     bountyHistory: [
-      { arc: "Sun Pirates Base", amount: "76,000,000 ฿" },
-      { arc: "Warlord Era (Frozen)", amount: "250,000,000 ฿" },
-      { arc: "Post-Marineford (Resigned)", amount: "438,000,000 ฿" },
-      { arc: "Wano Country", amount: "1,100,000,000 ฿" }
+      { arc: "Alabasta Saga", amount: "0 ฿" },
+      { arc: "Skypiea/Water 7/Enies Lobby", amount: "0 ฿" },
+      { arc: "Thriller Bark", amount: "0 ฿" },
+      { arc: "Summit War", amount: "0 ฿" },
+      { arc: "Fishmen Island/Punk Hazard/Dressrosa", amount: "0 ฿" },
+      { arc: "Whole Cake", amount: "0 ฿" },
+      { arc: "Wano", amount: "438,000,000 ฿" },
+      { arc: "Egghead", amount: "1,100,000,000 ฿" }
     ],
     dream: "To achieve complete coexistence and racial equality between humans and Fish-men.",
     abilities: ["Fish-Man Karate (Gyojin Karate - master grade)", "Fish-Man Jujutsu", "Ocean water telekinetic throwing", "Masterful navigation of dangerous sea currents"],
