@@ -222,7 +222,7 @@ export default function DevilFruitCard({ fruit, onClick }: DevilFruitCardProps) 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
-      className={`group relative liquid-glass rounded px-8 pt-12 pb-24 cursor-pointer overflow-hidden flex flex-col items-center select-none ${styleMapping.bg}`}
+      className={`group relative liquid-glass-strong rounded-2xl px-8 pt-12 pb-24 cursor-pointer overflow-hidden flex flex-col items-center select-none ${styleMapping.bg}`}
       whileHover={{
         y: -10,
         scale: 1.02,

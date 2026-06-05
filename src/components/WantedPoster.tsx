@@ -19,7 +19,7 @@ export default function WantedPoster({ character, onClick, compact = false }: Wa
   if (compact) {
     return (
       <motion.div 
-        className="group relative cursor-pointer overflow-hidden rounded-lg bg-[#0A1929] p-3 border border-white/10 flex items-center gap-3 shadow-lg"
+        className="group relative cursor-pointer overflow-hidden rounded-xl liquid-glass-strong bg-[#0A1929]/50 p-3 flex items-center gap-3 shadow-lg"
         onClick={onClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -86,7 +86,7 @@ export default function WantedPoster({ character, onClick, compact = false }: Wa
     >
       {/* Wanted Poster Card Body */}
       <div 
-        className="relative w-60 liquid-glass rounded-xl bg-[#2E1F17]/30 p-4 transition-all duration-500 font-sans overflow-hidden flex flex-col items-center select-none"
+        className="relative w-60 liquid-glass-strong rounded-2xl bg-[#2E1F17]/40 p-4 transition-all duration-500 font-sans overflow-hidden flex flex-col items-center select-none"
         style={{
           boxShadow: isHovered 
             ? '0 20px 40px -15px rgba(251, 191, 36, 0.25), inset 0 0 25px 2px rgba(251, 191, 36, 0.25)' 
