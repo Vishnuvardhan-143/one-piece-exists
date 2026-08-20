@@ -16,6 +16,7 @@ import DevilFruitCard from './components/DevilFruitCard';
 import WantedPoster from './components/WantedPoster';
 import FadingVideo from './components/FadingVideo';
 import BlurText from './components/BlurText';
+import SwarmCursor from './components/SwarmCursor';
 import { FactionType, Character } from './types';
 import { Compass, Sparkles, Trophy, Anchor, Award, Search, Users, Activity, Globe, Skull, HelpCircle, Flame, ShieldAlert, ArrowLeft } from 'lucide-react';
 
@@ -72,6 +73,20 @@ export default function App() {
       onMouseMove={handleMouseMove}
       className="min-h-screen bg-[#0A1929] text-[#F5F5DC] flex flex-col font-sans selection:bg-[#FFD700] selection:text-stone-950 relative overflow-x-hidden"
     >
+      {/* Interactive Swarm Cursor background animation */}
+      <SwarmCursor
+        className="fixed inset-0 pointer-events-none z-1"
+        color="#2BA8C8"
+        accentColor="#5FFBF1"
+        count={16}
+        size={8}
+        speed={3.2}
+        glow={0.65}
+        merge={0.72}
+        opacity={0.6}
+        trail={0.7}
+        spread={100}
+      />
       
       {/* Decorative Sleek Interface background grid overlay and radial glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(57,204,204,0.08)_0%,transparent_80%)] pointer-events-none z-0 transition-all duration-300 ease-out" />
